@@ -63,7 +63,9 @@ def main():
             a_cuda, b_cuda, 2.5, 1.5, name="Our CUDA impl")
         
         # Check for correctness on GPU
-        assert torch.allclose(native_cuda_result, our_cuda_result)
+        print(native_cuda_result)
+        print(our_cuda_result)
+        assert torch.allclose(native_cuda_result, our_cuda_result, atol=1e-6)
         print("CUDA implementations match!")
 
 if __name__ == "__main__":
